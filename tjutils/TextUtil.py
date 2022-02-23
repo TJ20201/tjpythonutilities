@@ -27,7 +27,7 @@ class TextUtil():
 		text2 = ''
 		for char in text:
 			cindex = chars.find(char)
-			nchar = encchars[TextUtil.antiOverflow(cindex, encchars)]
+			nchar = encchars[TextUtil.antiOverflow(self, index=cindex, l=encchars)]
 			if nchar in alphabet:
 				nchar = nchar.swapcase()
 			text2 = text2 + nchar
@@ -43,7 +43,7 @@ class TextUtil():
 			text2 = ''
 			for char in text:
 				cindex = encchars.find(char)
-				nchar = chars[TextUtil.antiOverflow(cindex, chars)]
+				nchar = chars[TextUtil.antiOverflow(self, index=cindex, l=chars)]
 				if nchar in alphabet:
 					nchar = nchar.swapcase()
 				text2 = text2 + nchar
