@@ -2,25 +2,25 @@ class TextUtil():
 	def __init__(self):
 		pass
 
-	def generalValues():
+	def generalValues(self):
 		return {
 					"alphabet": 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 				}
 
 	# Used for in-code anti list overflowing. 
-	def antiOverflow(index, l):
+	def antiOverflow(self, index, l):
 		if index < len(l):
 			return index-len(l)
 		else:
 			return index
 
 	# General encryption and decryption functions.
-	def valuesForCrypt():
+	def valuesForCrypt(self):
 		return {
 					"chars":    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`!\"£$%^&*()_+{}~:/@<>?[];\',./#\\|=-▲▼↑↓',
 					"encchars": 'GHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`!\"£$%^&*()_+{}~:/@<>?[];\',./#\\|=-▲▼↑↓ABCDEF'
 				}
-	def encrypt(text):
+	def encrypt(self, text):
 		alphabet = TextUtil.generalValues()["alphabet"]
 		chars = TextUtil.valuesForCrypt()["chars"]
 		encchars = TextUtil.valuesForCrypt()["encchars"]
@@ -34,7 +34,7 @@ class TextUtil():
 		encrypted = text2[::-1]
 		ret = '!SYSARG!enc:/:!' + encrypted
 		return ret
-	def decrypt(text):
+	def decrypt(self, text):
 		alphabet = TextUtil.generalValues()["alphabet"]
 		chars = TextUtil.valuesForCrypt()["chars"]
 		encchars = TextUtil.valuesForCrypt()["encchars"]
