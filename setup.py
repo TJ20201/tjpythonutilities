@@ -6,7 +6,7 @@ setup(
     description='TJ\'s Utilities for Python',
     url='https://github.com/TJ20201/tjpythonutilities',
     author='TJ20201',
-    packages=['utilities'],
+    packages=['tjutils'],
     classifiers=[
         'Programming Language :: Python :: 3.10',
     ],
