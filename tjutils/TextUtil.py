@@ -21,9 +21,9 @@ class TextUtil():
 					"encchars": 'GHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789`!\"£$%^&*()_+{}~:/@<>?[];\',./#\\|=-▲▼↑↓ABCDEF'
 				}
 	def encrypt(self, text):
-		alphabet = TextUtil.generalValues()["alphabet"]
-		chars = TextUtil.valuesForCrypt()["chars"]
-		encchars = TextUtil.valuesForCrypt()["encchars"]
+		alphabet = TextUtil.generalValues(self)["alphabet"]
+		chars = TextUtil.valuesForCrypt(self)["chars"]
+		encchars = TextUtil.valuesForCrypt(self)["encchars"]
 		text2 = ''
 		for char in text:
 			cindex = chars.find(char)
@@ -35,9 +35,9 @@ class TextUtil():
 		ret = '!SYSARG!enc:/:!' + encrypted
 		return ret
 	def decrypt(self, text):
-		alphabet = TextUtil.generalValues()["alphabet"]
-		chars = TextUtil.valuesForCrypt()["chars"]
-		encchars = TextUtil.valuesForCrypt()["encchars"]
+		alphabet = TextUtil.generalValues(self)["alphabet"]
+		chars = TextUtil.valuesForCrypt(self)["chars"]
+		encchars = TextUtil.valuesForCrypt(self)["encchars"]
 		if text.startswith('!SYSARG!enc:/:!'):
 			text = text.replace('!SYSARG!enc:/:!', '')
 			text2 = ''
