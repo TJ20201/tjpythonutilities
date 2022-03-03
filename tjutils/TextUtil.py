@@ -4,7 +4,9 @@ class TextUtil():
 
 	def generalValues(self):
 		return {
-					"alphabet": 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+					"alphabet": 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+					"version_general": "1.0.0",
+					"version_encrypt": "1"
 				}
 
 	# Used for in-code anti list overflowing. 
@@ -32,14 +34,15 @@ class TextUtil():
 				nchar = nchar.swapcase()
 			text2 = text2 + nchar
 		encrypted = text2[::-1]
-		ret = '!SYSARG!enc:/:!' + encrypted
+		ret = f'!SYSARG!enc:/{TextUtil.generalValues()["version_encrypt"]}/:!' + encrypted
 		return ret
 	def decrypt(self, text):
 		alphabet = TextUtil.generalValues(self)["alphabet"]
 		chars = TextUtil.valuesForCrypt(self)["chars"]
 		encchars = TextUtil.valuesForCrypt(self)["encchars"]
 		if text.startswith('!SYSARG!enc:/:!'):
-			text = text.replace('!SYSARG!enc:/:!', '')
+			version = text.split("/")[1]
+			text = text[16+len(str(version))]
 			text2 = ''
 			for char in text:
 				cindex = encchars.find(char)
