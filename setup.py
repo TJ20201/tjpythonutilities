@@ -10,4 +10,7 @@ setup(
     classifiers=[
         'Programming Language :: Python :: 3.10',
     ],
+    install_requires=[
+        'requests'
+    ]
 )
